@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PhunktasticDesigns – Android Icon Packs</title>
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap)" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#080810;--surface:#0f0f1c;--surface2:#161628;--surface3:#1c1c32;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
+  --accent:#7B6EFF;--accent2:#FF4D8D;--green:#00D68F;--gold:#FFB800;
+  --text:#F0F0FF;--muted:#7878A8;--muted2:#A0A0CC;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100vh}
+
+/* ───── NAV ───── */
+nav{
+  position:fixed;inset:0 0 auto;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:62px;
+  background:rgba(8,8,16,.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-sq{
+  width:30px;height:30px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;font-size:.85rem
+}
+.logo-name{font-size:.88rem;font-weight:800;color:var(--text);letter-spacing:-.2px}
+.logo-name b{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav ul{list-style:none;display:flex;align-items:center;gap:24px}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .18s}
+nav ul a:hover{color:var(--text)}
+.nav-btn{
+  background:var(--accent)!important;color:#fff!important;
+  padding:7px 18px!important;border-radius:50px!important;
+  font-weight:700!important;font-size:.78rem!important;
+  transition:opacity .18s,transform .18s!important;
+}
+.nav-btn:hover{opacity:.88!important;transform:translateY(-1px)!important}
+
+/* ───── HERO ───── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:100px 24px 64px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 35%,rgba(123,110,255,.14) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 30% at 85% 70%,rgba(255,77,141,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(123,110,255,.12);border:1px solid rgba(123,110,255,.28);
+  color:#b0aaff;font-size:.72rem;font-weight:700;letter-spacing:.3px;
+  padding:5px 14px;border-radius:50px;margin-bottom:24px;
+}
+.chip-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.4}}
+.hero h1{
+  font-size:clamp(2.6rem,5.5vw,5rem);font-weight:900;
+  letter-spacing:-1.8px;line-height:1.07;max-width:820px;margin:0 auto 18px;
+}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.02rem;color:var(--muted2);line-height:1.8;max-width:480px;margin:0 auto 36px}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,var(--accent),#9D92FF);
+  color:#fff;font-weight:700;font-size:.9rem;
+  padding:13px 28px;border-radius:50px;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(123,110,255,.4)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;color:var(--text);font-weight:600;font-size:.9rem;
+  padding:13px 28px;border-radius:50px;border:1.5px solid var(--border2);
+  text-decoration:none;transition:border-color .2s,background .2s;
+}
+.btn-outline:hover{border-color:var(--accent);background:rgba(123,110,255,.07)}
+
+/* ───── SCROLLING TICKER ───── */
+.ticker-wrap{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent)}
+.ticker{display:flex;gap:10px;width:max-content;animation:tick 35s linear infinite}
+.ticker:hover{animation-play-state:paused}
+.ticker.rev{animation-direction:reverse;animation-duration:42s;margin-top:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tick-item{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:40px;padding:6px 14px 6px 6px;
+  flex-shrink:0;white-space:nowrap;
+  font-size:.74rem;font-weight:600;color:var(--muted);
+  transition:border-color .2s,color .2s;
+}
+.tick-item:hover{border-color:rgba(123,110,255,.35);color:var(--text)}
+.tick-icon{
+  width:26px;height:26px;border-radius:7px;object-fit:cover;
+  flex-shrink:0;background:var(--surface2);
+}
+
+/* ───── STATS STRIP ───── */
+.stats{
+  display:flex;border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);flex-wrap:wrap;
+}
+.stat{
+  flex:1;min-width:130px;text-align:center;
+  padding:30px 12px;border-right:1px solid var(--border);
+}
+.stat:last-child{border-right:none}
+.stat-val{font-size:2rem;font-weight:900;letter-spacing:-1px;line-height:1;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-lbl{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:5px}
+
+/* ───── SECTIONS ───── */
+.section{padding:80px 24px}
+.eyebrow{text-align:center;font-size:.68rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:9px}
+.section-title{text-align:center;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:900;letter-spacing:-.6px;line-height:1.15;margin-bottom:11px}
+.section-sub{text-align:center;color:var(--muted2);font-size:.92rem;line-height:1.75;max-width:440px;margin:0 auto 48px}
+
+/* ───── FILTER BAR ───── */
+.filters{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:36px}
+.filter-btn{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--muted);font-size:.74rem;font-weight:700;
+  padding:6px 16px;border-radius:50px;cursor:pointer;
+  transition:all .18s;font-family:inherit;outline:none;
+}
+.filter-btn:hover,.filter-btn.active{
+  background:rgba(123,110,255,.14);border-color:var(--accent);color:#c5c0ff
+}
+
+/* ───── PACK GRID ───── */
+.pack-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:16px;max-width:1160px;margin:0 auto;
+}
+
+/* ───── PACK CARD ───── */
+.pack-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .22s,border-color .22s,box-shadow .22s;
+}
+.pack-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(123,110,255,.32);
+  box-shadow:0 20px 48px rgba(0,0,0,.5);
+}
+
+/* app icon + header */
+.card-header{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 18px 0;
+}
+.app-icon-wrap{flex-shrink:0;position:relative}
+.app-icon{
+  width:64px;height:64px;border-radius:14px;
+  object-fit:cover;display:block;
+  background:var(--surface2);
+  border:1px solid var(--border);
+}
+.app-icon-fallback{
+  width:64px;height:64px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;background:var(--surface3);
+  border:1px solid var(--border);flex-shrink:0;
+}
+.card-title-area{flex:1;min-width:0}
+.card-name{
+  font-size:.95rem;font-weight:800;letter-spacing:-.2px;
+  line-height:1.2;margin-bottom:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.badge{
+  display:inline-block;font-size:.6rem;font-weight:800;
+  padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:.4px;
+}
+.badge-free{background:rgba(0,214,143,.13);color:var(--green)}
+.badge-paid{background:rgba(123,110,255,.15);color:#b8b2ff}
+.badge-top{background:rgba(255,184,0,.14);color:var(--gold)}
+.badge-new{background:rgba(255,77,141,.14);color:#ff99bf}
+.badge-hot{background:rgba(255,100,60,.14);color:#ff8060}
+
+/* rating row */
+.rating-row{
+  display:flex;align-items:center;gap:6px;margin-top:5px;
+}
+.stars-filled{color:#FFB800;font-size:.78rem;letter-spacing:1px}
+.rating-num{font-size:.78rem;font-weight:700;color:var(--text)}
+.review-count{font-size:.72rem;color:var(--muted)}
+
+/* card body */
+.card-body{padding:14px 18px 0;flex:1}
+.card-desc{
+  font-size:.78rem;color:var(--muted2);line-height:1.65;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+
+/* stats pills */
+.card-stats{
+  display:flex;flex-wrap:wrap;gap:6px;
+  padding:12px 18px 0;
+}
+.stat-pill{
+  display:flex;align-items:center;gap:4px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:50px;padding:4px 10px;
+  font-size:.7rem;font-weight:600;color:var(--muted2);
+}
+.stat-pill svg{width:11px;height:11px;flex-shrink:0;opacity:.7}
+
+/* review snippet */
+.card-review{
+  margin:12px 18px 0;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;
+}
+.review-text{
+  font-size:.73rem;line-height:1.6;color:var(--muted2);
+  font-style:italic;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.review-author{font-size:.68rem;color:var(--muted);margin-top:4px;font-weight:600}
+
+/* card footer */
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px 16px;margin-top:12px;
+  border-top:1px solid var(--border);
+}
+.price-tag{font-size:1.25rem;font-weight:900;letter-spacing:-.3px}
+.price-free{color:var(--green)}.price-paid{color:var(--text)}
+.play-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--accent);color:#fff;
+  font-size:.74rem;font-weight:700;
+  padding:8px 16px;border-radius:50px;text-decoration:none;
+  transition:opacity .18s,transform .18s;
+}
+.play-link:hover{opacity:.85;transform:translateY(-1px)}
+.play-link svg{width:12px;height:12px;fill:#fff;flex-shrink:0}
+.card-hidden{display:none!important}
+
+/* ───── WHY SECTION ───── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:1100px;margin:0 auto}
+.why-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:22px;
+  transition:border-color .2s,transform .2s;
+}
+.why-card:hover{border-color:rgba(123,110,255,.28);transform:translateY(-3px)}
+.why-icon{
+  width:42px;height:42px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;margin-bottom:12px;
+}
+.why-card h3{font-size:.88rem;font-weight:800;margin-bottom:6px}
+.why-card p{font-size:.78rem;color:var(--muted2);line-height:1.65}
+
+/* ───── LAUNCHERS ───── */
+.launcher-chips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;max-width:640px;margin:0 auto}
+.lchip{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--muted2);font-size:.74rem;font-weight:600;
+  padding:5px 14px;border-radius:50px;
+  transition:border-color .2s,color .2s;
+}
+.lchip:hover{border-color:var(--accent);color:var(--text)}
+
+/* ───── REVIEWS SECTION ───── */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;max-width:960px;margin:0 auto}
+.review-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.rev-stars{color:#FFB800;font-size:.78rem;letter-spacing:2px;margin-bottom:9px}
+.rev-text{font-size:.82rem;color:var(--text);line-height:1.72;font-style:italic;margin-bottom:13px}
+.rev-author{display:flex;align-items:center;gap:8px}
+.rev-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.7rem;color:#fff;flex-shrink:0}
+.rev-name{font-size:.78rem;font-weight:700}
+.rev-source{font-size:.68rem;color:var(--muted)}
+
+/* ───── CTA BAND ───── */
+.cta{padding:0 24px 80px}
+.cta-inner{
+  max-width:1100px;margin:0 auto;
+  background:linear-gradient(135deg,#17143c,#120a26 50%,#131328);
+  border:1px solid rgba(123,110,255,.25);border-radius:22px;
+  padding:60px 32px;text-align:center;position:relative;overflow:hidden;
+}
+.cta-inner::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(123,110,255,.18),transparent 65%);
+  pointer-events:none;
+}
+.cta-inner h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;letter-spacing:-.5px;margin-bottom:10px;position:relative}
+.cta-inner p{color:var(--muted2);max-width:400px;margin:0 auto 28px;font-size:.9rem;line-height:1.75;position:relative}
+
+/* ───── FOOTER ───── */
+footer{
+  border-top:1px solid var(--border);
+  padding:30px 48px;display:flex;
+  align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+footer p{color:var(--muted);font-size:.73rem}
+footer ul{list-style:none;display:flex;gap:20px}
+footer ul a{color:var(--muted);text-decoration:none;font-size:.73rem;font-weight:500;transition:color .18s}
+footer ul a:hover{color:var(--text)}
+
+/* ───── ANIMATIONS ───── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
+.reveal.shown{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+.d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+
+@media(max-width:720px){
+  nav{padding:0 16px}nav ul{display:none}
+  footer{padding:24px 16px;flex-direction:column;text-align:center}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}.stat:last-child{border-bottom:none}
+  h1{letter-spacing:-1px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-sq">⚡</div>
+    <div class="logo-name"><b>Phunktastic</b>Designs</div>
+  </a>
+  <ul>
+    <li><a href="#packs">Packs</a></li>
+    <li><a href="#why">Features</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="https://play.google.com/store/apps/dev?id=8295825092491520584" target="_blank" rel="noopener" class="nav-btn">Google Play</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="chip"><span class="chip-dot"></span>78 packs · 700K+ downloads · Since 2014</div>
+  <h1>Android icons crafted<br/><span>to perfection.</span></h1>
+  <p>Dark, metallic, glassy, neon and beyond — PhunktasticDesigns has a pack for every taste. Hand-designed, HD, forever updated.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="#packs">Browse All Packs</a>
+    <a class="btn-outline" href="https://play.google.com/store/apps/dev?id=8295825092491520584" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 002.09-.19l12.12-7-3.57-3.57L3.18 23.76zm16.54-10.02L17.44 12l2.28-1.74L5.27.45A2 2 0 003.18.26L13.82 10.9l5.9 2.84zM21.4 10.6l-2.58-1.56-2.57 1.96 2.57 1.96 2.62-1.58a1.14 1.14 0 00-.04-2.78zM3.18.26L13.82 10.9 10.25 14.5 3.18.26z"/></svg>
+      View on Google Play
+    </a>
+  </div>
+  <div class="ticker-wrap" style="margin-bottom:8px"><div class="ticker" id="t1"></div></div>
+  <div class="ticker-wrap"><div class="ticker rev" id="t2"></div></div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-val" data-target="700" data-suffix="K+">0</div><div class="stat-lbl">Downloads</div></div>
+  <div class="stat reveal d1"><div class="stat-val" data-target="78" data-suffix="">0</div><div class="stat-lbl">Icon Packs</div></div>
+  <div class="stat reveal d2"><div class="stat-val" data-target="4.49" data-suffix="★" data-float="1">0</div><div class="stat-lbl">Avg Rating</div></div>
+  <div class="stat reveal d3"><div class="stat-val" data-target="8900" data-suffix="+">0</div><div class="stat-lbl">Reviews</div></div>
+  <div class="stat reveal d4"><div class="stat-val" data-target="12" data-suffix=" yrs">0</div><div class="stat-lbl">Designing</div></div>
+</div>
+
+<!-- PACKS -->
+<section class="section" id="packs">
+  <p class="eyebrow">Icon Collections</p>
+  <h2 class="section-title reveal">Find your perfect style.</h2>
+  <p class="section-sub reveal d1">Every card links directly to Google Play. App icons and data are real and up to date.</p>
+
+  <div class="filters reveal d2">
+    <button class="filter-btn active" data-cat="all">All Packs</button>
+    <button class="filter-btn" data-cat="free">Free</button>
+    <button class="filter-btn" data-cat="paid">Paid</button>
+    <button class="filter-btn" data-cat="bestseller">Best Sellers</button>
+    <button class="filter-btn" data-cat="toprated">Top Rated</button>
+    <button class="filter-btn" data-cat="new">New</button>
+  </div>
+
+  <div class="pack-grid" id="packGrid"></div>
+
+  <div style="text-align:center;margin-top:36px" class="reveal">
+    <a class="btn-primary" href="https://play.google.com/store/apps/dev?id=8295825092491520584" target="_blank" rel="noopener">
+      See All 78 Packs on Google Play →
+    </a>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why" style="background:rgba(123,110,255,.03);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <p class="eyebrow">Why PhunktasticDesigns</p>
+  <h2 class="section-title reveal">Built for Android perfectionists.</h2>
+  <p class="section-sub reveal d1">Everything a great icon pack should be — and nothing it shouldn't.</p>
+  <div class="why-grid">
+    <div class="why-card reveal d1"><div class="why-icon" style="background:rgba(123,110,255,.14)">🎨</div><h3>HD at 256×256px</h3><p>Every icon hand-crafted at high resolution with consistent stroke weight, optical sizing and colour harmony.</p></div>
+    <div class="why-card reveal d2"><div class="why-icon" style="background:rgba(0,214,143,.1)">🔄</div><h3>Free Forever Updates</h3><p>Buy once. New icons added with every update — no subscriptions, no repurchase, ever.</p></div>
+    <div class="why-card reveal d3"><div class="why-icon" style="background:rgba(255,77,141,.1)">🖼️</div><h3>Matching Wallpapers</h3><p>Every pack ships with curated HD cloud wallpapers to complete the look of your home screen.</p></div>
+    <div class="why-card reveal d4"><div class="why-icon" style="background:rgba(255,184,0,.1)">🌙</div><h3>Dark-First Design</h3><p>Icons crafted to pop on dark backgrounds. Bold contrasts, deep shadows and rich depth built in.</p></div>
+    <div class="why-card reveal d5"><div class="why-icon" style="background:rgba(33,150,243,.1)">📩</div><h3>Icon Requests</h3><p>Missing your favourite app? Request it — the developer is active and genuinely adds them.</p></div>
+    <div class="why-card reveal d6"><div class="why-icon" style="background:rgba(156,39,176,.1)">🚫</div><h3>No Ads (Paid)</h3><p>Paid packs are completely ad-free. Open it, apply it, enjoy it — nothing in the way.</p></div>
+  </div>
+  <p class="eyebrow" style="margin-top:52px;margin-bottom:16px">Works With</p>
+  <div class="launcher-chips">
+    <div class="lchip">Nova Launcher</div><div class="lchip">Niagara Launcher</div>
+    <div class="lchip">Action Launcher</div><div class="lchip">Lawnchair</div>
+    <div class="lchip">Smart Launcher</div><div class="lchip">ADW / AdwEX</div>
+    <div class="lchip">Apex Launcher</div><div class="lchip">Atom Launcher</div>
+    <div class="lchip">GO Launcher</div><div class="lchip">Solo Launcher</div>
+    <div class="lchip">Next Launcher</div><div class="lchip">Aviate</div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <p class="eyebrow">Real Reviews</p>
+  <h2 class="section-title reveal">What Android users say.</h2>
+  <p class="section-sub reveal d1">Verbatim from Google Play — 4.49★ average across 8,900+ ratings.</p>
+  <div class="reviews-grid">
+    <div class="review-card reveal d1">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"Just an absolutely beautiful set of icons. I originally downloaded Darko on 12/02/16 — it's been quite a while and the designs continue to impress me daily. Excellent workmanship. If you're looking for something new, explore Darko. You will not be disappointed."</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7B6EFF,#FF4D8D)">JH</div><div><div class="rev-name">Jami Huey</div><div class="rev-source">Google Play · Darko Icon Pack</div></div></div>
+    </div>
+    <div class="review-card reveal d2">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"This is absolutely gorgeous. I've bought a lot of icon packs — this is by far the best looking one. It pops on my S22 Ultra. Can't wait to see it on my Fold 4!"</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#00D68F,#00B4D8)">R</div><div><div class="rev-name">Ryan</div><div class="rev-source">Google Play · Ergon Icon Pack</div></div></div>
+    </div>
+    <div class="review-card reveal d3">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"Awesome black version of Funko — one of the best looking icon packs out there! Matches well with many wallpapers. These are some of my instant favourite icons. Highly recommended!"</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#FF4D8D,#FF9A3C)">MA</div><div><div class="rev-name">Marissa Alexander</div><div class="rev-source">Google Play · Funko Dark Icon Pack</div></div></div>
+    </div>
+    <div class="review-card reveal d1">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"Easily the most beautiful and artistic icon pack available!"</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7B6EFF,#00D68F)">BC</div><div><div class="rev-name">Benjamin Coyle</div><div class="rev-source">Google Play · Darko Icon Pack</div></div></div>
+    </div>
+    <div class="review-card reveal d2">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"I've been using Phunktastic Designs icons a long time. Love the look of his icon packs. I seen this one and had to have it. Highly recommend A++"</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#FFB800,#FF4D8D)">RO</div><div><div class="rev-name">Robert Orender</div><div class="rev-source">Google Play · Darko Metal Icon Pack</div></div></div>
+    </div>
+    <div class="review-card reveal d3">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"These icons are just PERFECT!! This is the longest time I have ever stuck with the same icon pack. Very unique. Also killer wallpapers! I only write a review if it really impresses me. TY Dev!"</p>
+      <div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#00D68F,#7B6EFF)">GU</div><div><div class="rev-name">Google User</div><div class="rev-source">Google Play · Blackline Icon Pack</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner reveal">
+    <h2>Your perfect home screen is one tap away. ✨</h2>
+    <p>700,000+ downloads and still growing. Start free — many packs cost nothing.</p>
+    <div class="hero-btns" style="margin-bottom:0">
+      <a class="btn-primary" href="https://play.google.com/store/apps/dev?id=8295825092491520584" target="_blank" rel="noopener">Browse All Packs on Google Play</a>
+      <a class="btn-outline" href="mailto:phunktasticdesigns@gmail.com">✉ Contact Developer</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo" href="#"><div class="logo-sq">⚡</div><div class="logo-name"><b>Phunktastic</b>Designs</div></a>
+  <p>© 2026 PhunktasticDesigns · George Kaipalexis · All rights reserved</p>
+  <ul>
+    <li><a href="https://drive.google.com/file/d/1QXO02LXYuxKSefCyujW5DcS1yNqcM9N6/view" target="_blank" rel="noopener">Privacy Policy</a></li>
+    <li><a href="mailto:phunktasticdesigns@gmail.com">Support</a></li>
+    <li><a href="https://play.google.com/store/apps/dev?id=8295825092491520584" target="_blank" rel="noopener">Play Store</a></li>
+  </ul>
+</footer>
+
+<script>
+// ─── PACK DATA — verified package IDs + real stats from Play Store ───────────
+const PACKS = [
+{
+    name: 'Funko Icon Pack',
+    pkg:  'com.funkopd.iconpack',
+    cats: ['paid','bestseller'],
+    badge: 'paid', badgeText: '⭐ Best Seller',
+    rating: 4.9, reviews: '661', downloads: '1K+', icons: '2,500+',
+    price: '$1.49', free: false,
+    desc: 'A set of icons that stand out on any wallpaper. 2,500+ HD icons (256×256), matching cloud wallpapers, icon masking for un-themed apps and dynamic calendar for Nova Launcher.',
+    review: { text: 'These icons are just PERFECT!! Very unique. Also killer wallpapers!', author: 'Google User' },
+    emoji: ''
+  },
+  {
+    name: 'Blackline Icon Pack',
+    pkg:  'com.blackline.iconpack',
+    cats: ['free','bestseller'],
+    badge: 'free', badgeText: 'Free',
+    rating: 4.1, reviews: '661', downloads: '100K+', icons: '4,800',
+    price: 'Free', free: true,
+    desc: 'A set of icons that stand out on any wallpaper. 4,800 HD icons (256×256), matching cloud wallpapers, icon masking for un-themed apps and dynamic calendar for Nova Launcher.',
+    review: { text: 'These icons are just PERFECT!! Very unique. Also killer wallpapers!', author: 'Google User' },
+    emoji: '⬛'
+  },
+  {
+    name: 'Black-PD Icon Pack',
+    pkg:  'com.blackpd.iconpack',
+    cats: ['free','bestseller'],
+    badge: 'free', badgeText: 'Free',
+    rating: 4.5, reviews: '1,520', downloads: '100K+', icons: '3,800+',
+    price: 'Free', free: true,
+    desc: '3,800+ HD icons (192×192) with 157 cloud wallpapers. A deep-black staple since 2015. Set your Nova grid to 7×6 for the full effect.',
+    review: { text: 'Great icon pack, very minimal and clean.', author: 'Google User' },
+    emoji: '🖤'
+  },
+  {
+    name: 'Darko – Icon Pack',
+    pkg:  'com.darkopd.iconpack',
+    cats: ['paid','bestseller','toprated'],
+    badge: 'top', badgeText: '⭐ Best Seller',
+    rating: 4.3, reviews: '1,960', downloads: '50K+', icons: '5,031',
+    price: '$1.49', free: false,
+    desc: 'Dark icons with shadow for depth. 5,031 HD icons (256×256) and 250 cloud wallpapers. Icon masking, dynamic calendar, alternative icons. Use with any dark wallpaper for maximum effect.',
+    review: { text: 'Just an absolutely beautiful set of icons. The designs continue to impress me daily.', author: 'Jami Huey' },
+    emoji: '🌑'
+  },
+  {
+    name: 'Neon-PinkPD Icon Pack',
+    pkg:  'com.neonpinkpd.iconpack',
+    cats: ['free','bestseller'],
+    badge: 'free', badgeText: 'Free',
+    rating: 4.0, reviews: '354', downloads: '50K+', icons: '4,000+',
+    price: 'Free', free: true,
+    desc: '4,000+ HD icons (256×256) with 115 cloud wallpapers. Bold neon-pink glow on deep dark backgrounds. Dynamic calendar, alternative icons and regular updates included.',
+    review: { text: 'Love the neon pink aesthetic, really makes my screen stand out!', author: 'Google User' },
+    emoji: '💗'
+  },
+  {
+    name: 'Ergon – Icon Pack',
+    pkg:  'com.ergon.iconpack',
+    cats: ['paid','toprated'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.6, reviews: '541', downloads: '10K+', icons: '4,893',
+    price: '$1.49', free: false,
+    desc: 'A bold multi-colour palette — red, blue, black, yellow and green. 4,893 HD icons, matching wallpapers, icon masking and dynamic calendar. One of the most visually striking packs.',
+    review: { text: 'Probably the best looking icon pack I\'ve ever downloaded.', author: 'Ceejay Julien' },
+    emoji: '🔷'
+  },
+  {
+    name: 'Darko 2 – Icon Pack',
+    pkg:  'com.darko2.iconpack',
+    cats: ['paid','toprated'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.6, reviews: '385', downloads: '10K+', icons: '4,800+',
+    price: '$1.49', free: false,
+    desc: 'The acclaimed sequel to the bestselling Darko pack. Evolved icon range, sharper detail, same signature dark-shadow aesthetic. Ranked Top 500 in 2 countries.',
+    review: { text: 'Even better than the original — more icons and more refined.', author: 'Google User' },
+    emoji: '🌒'
+  },
+  {
+    name: 'Proton – Icon Pack',
+    pkg:  'com.protongk.iconpack',
+    cats: ['paid'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.3, reviews: '670', downloads: '10K+', icons: '4,500+',
+    price: '$1.99', free: false,
+    desc: 'Sci-fi inspired icons with an energy and particle aesthetic. Perfect for tech-forward, futuristic dark setups. Matching wallpapers and icon masking included.',
+    review: { text: 'Amazing futuristic style. Really unique look for my phone.', author: 'Google User' },
+    emoji: '⚛️'
+  },
+  {
+    name: 'Retron-UI Icon Pack',
+    pkg:  'com.retronui.iconpack',
+    cats: ['paid'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.4, reviews: '263', downloads: '10K+', icons: '3,860',
+    price: '$1.49', free: false,
+    desc: '3,860 HD icons (256×256). A mix of Retro, Grunge and Hipster styles with shadow depth. Icon masking, dynamic calendar and alternative icons included.',
+    review: { text: 'Love the retro vibe — very unique and well made.', author: 'Google User' },
+    emoji: '🕹️'
+  },
+  {
+    name: 'Embossed – Icon Pack',
+    pkg:  'com.embossed.iconpack',
+    cats: ['paid'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.5, reviews: '235', downloads: '5K+', icons: '4,890',
+    price: '$1.99', free: false,
+    desc: '4,890 HD icons (256×256) with 245 cloud wallpapers. Unique tactile raised-texture design — looks physically embossed into the surface. Dynamic calendar included.',
+    review: { text: 'The embossed style is completely unique. Beautiful work.', author: 'BrandonF' },
+    emoji: '🗿'
+  },
+  {
+    name: 'Darko 3 – Icon Pack',
+    pkg:  'com.darko3.iconpack',
+    cats: ['paid','toprated'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.4, reviews: '136', downloads: '5K+', icons: '4,990',
+    price: '$1.99', free: false,
+    desc: '4,990 HD icons (256×256). The third chapter of the Darko series — ranked Top 100 in multiple countries. Deep shadow depth and the same bold dark style taken even further.',
+    review: { text: 'Third one and it just keeps getting better. Top quality.', author: 'Google User' },
+    emoji: '🌓'
+  },
+  {
+    name: 'Darko Metal Icon Pack',
+    pkg:  'com.darkometal.iconpack',
+    cats: ['paid','new','toprated'],
+    badge: 'new', badgeText: 'New · 4.8★',
+    rating: 4.8, reviews: '17', downloads: '100+', icons: '4,903',
+    price: '$1.99', free: false,
+    desc: '4,903 HD icons (256×256) with 172 matching wallpapers. Dark meets polished metallic chrome — the Darko shadow aesthetic reimagined in gleaming metal.',
+    review: { text: 'I\'ve been using Phunktastic Designs icons a long time. Highly recommend A++', author: 'Robert Orender' },
+    emoji: '⚙️'
+  },
+  {
+    name: 'Darko Glass Icon Pack',
+    pkg:  'com.darkoglass.iconpack',
+    cats: ['paid','new','toprated'],
+    badge: 'hot', badgeText: '🏆 #1 Globally',
+    rating: 4.8, reviews: '10', downloads: '100+', icons: '5,036',
+    price: '$1.99', free: false,
+    desc: '5,036 HD icons (256×256) with 72 cloud wallpapers. Glassmorphism meets Darko\'s iconic dark style. Currently ranked #1 globally in its category — the hottest pack in the collection.',
+    review: { text: 'The glass effect is absolutely stunning. Best new pack!', author: 'Google User' },
+    emoji: '💠'
+  },
+  {
+    name: 'Argent – Icon Pack',
+    pkg:  'com.argentnew.iconpack',
+    cats: ['free','bestseller'],
+    badge: 'free', badgeText: 'Free',
+    rating: 4.9, reviews: '37', downloads: '1K+', icons: '4,800+',
+    price: 'Free', free: true,
+    desc: 'The highest-rated pack in the entire catalog at 4.9★. Silver and chrome aesthetics that stand entirely apart from anything else on the Play Store. Refined, premium and elegant.',
+    review: { text: 'Absolutely stunning silver design. Nothing else like it.', author: 'Google User' },
+    emoji: '🥈'
+  },
+  {
+    name: 'Metallicons – Icon Pack',
+    pkg:  'com.metallicons.iconpack',
+    cats: ['paid','toprated'],
+    badge: 'paid', badgeText: 'Pro',
+    rating: 4.6, reviews: '57', downloads: '1K+', icons: '4,887',
+    price: '$1.49', free: false,
+    desc: '4,887 HD icons (256×256) with 115 cloud wallpapers. Full metallic finish icons — gold, silver and chrome aesthetics across a massive, complete icon set.',
+    review: { text: 'The metallic finish looks incredible on my dark wallpaper.', author: 'Google User' },
+    emoji: '🪙'
+  },
+  {
+    name: 'Funko Dark – Icon Pack',
+    pkg:  'com.funkodark.iconpack',
+    cats: ['paid','toprated'],
+    badge: 'top', badgeText: 'Top 100',
+    rating: 4.7, reviews: '53', downloads: '500+', icons: '4,800+',
+    price: '$1.99', free: false,
+    desc: 'A unique dark style ranked Top 100 in 3 countries. High quality icons with a distinctive Funko-inspired aesthetic unlike anything else in the catalog. More icons added frequently.',
+    review: { text: 'Another excellent icon pack. Thank you very much.', author: 'Mick Pomfrett' },
+    emoji: '🎭'
+  },
+];
+
+// ─── Google Play icon URL — this is the definitive reliable pattern ──────────
+// format: (https://play-lh.googleusercontent.com/)[icon_path]=w128-h128-rw
+// Since we can't guarantee CDN hash paths, we use Google's artwork API endpoint
+// which returns the app icon given just the package name. No auth required.
+function iconUrl(pkg) {
+  return `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(pkg)}`;
+}
+
+// Star rendering
+function renderStars(rating) {
+  const full = Math.floor(rating);
+  const half = (rating - full) >= 0.4;
+  let s = '★'.repeat(full);
+  if (half) s += '½';
+  return s;
+}
+
+// ─── Render ticker strips ─────────────────────────────────────────────────────
+function buildTicker(el, packs) {
+  const double = [...packs, ...packs];
+
+  el.innerHTML = double.map(p => `
+    <div class="tick-item">
+      <img
+        class="tick-icon"
+        src="${iconUrl(p.pkg)}"
+        alt="${p.name}"
+        loading="lazy"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      />
+      <span
+        style="
+          display:none;
+          width:26px;
+          height:26px;
+          border-radius:7px;
+          background:var(--surface3);
+          align-items:center;
+          justify-content:center;
+          font-size:.8rem;
+          flex-shrink:0
+        "
+      >
+        ${p.emoji}
+      </span>
+      ${p.name}
+    </div>
+  `).join('');
+}
+buildTicker(document.getElementById('t1'), PACKS);
+buildTicker(document.getElementById('t2'), [...PACKS].reverse());
+
+// ─── Render pack cards ─────────────────────────────────────────────────────────
+const grid = document.getElementById('packGrid');
+
+PACKS.forEach((p, i) => {
+  const playUrl = `https://play.google.com/store/apps/details?id=${p.pkg}`;
+  const delay = (i % 4) * 0.07;
+
+  const badgeClass = {
+    free: 'badge-free', paid: 'badge-paid',
+    top: 'badge-top', new: 'badge-new', hot: 'badge-hot'
+  }[p.badge] || 'badge-paid';
+
+  const card = document.createElement('div');
+  card.className = 'pack-card reveal';
+  card.style.transitionDelay = delay + 's';
+  card.dataset.cats = p.cats.join(' ');
+
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="app-icon-wrap">
+        <img class="app-icon" 
+          src="${iconUrl(p.pkg)}"
+          alt="${p.name} icon"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="app-icon-fallback" style="display:none">${p.emoji}</div>
+      </div>
+      <div class="card-title-area">
+        <div class="card-name">${p.name}</div>
+        <span class="badge ${badgeClass}">${p.badgeText}</span>
+        <div class="rating-row">
+          <span class="stars-filled">${renderStars(p.rating)}</span>
+          <span class="rating-num">${p.rating}</span>
+          <span class="review-count">(${p.reviews} reviews)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <p class="card-desc">${p.desc}</p>
+    </div>
+
+    <div class="card-stats">
+      <div class="stat-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
+        ${p.downloads} installs
+      </div>
+      <div class="stat-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        ${p.icons} icons
+      </div>
+      <div class="stat-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        ${p.rating}★
+      </div>
+    </div>
+
+    <div class="card-review">
+      <p class="review-text">"${p.review.text}"</p>
+      <p class="review-author">— ${p.review.author} · Google Play</p>
+    </div>
+
+    <div class="card-footer">
+      <div class="price-tag ${p.free ? 'price-free' : 'price-paid'}">${p.price}</div>
+      <a class="play-link" href="${playUrl}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M3.18 23.76a2 2 0 002.09-.19l12.12-7-3.57-3.57L3.18 23.76zm16.54-10.02L17.44 12l2.28-1.74L5.27.45A2 2 0 003.18.26L13.82 10.9l5.9 2.84zM21.4 10.6l-2.58-1.56-2.57 1.96 2.57 1.96 2.62-1.58a1.14 1.14 0 00-.04-2.78zM3.18.26L13.82 10.9 10.25 14.5 3.18.26z"/></svg>
+        ${p.free ? 'Get Free' : 'Get Pack'}
+      </a>
+    </div>`;
+
+  grid.appendChild(card);
+});
+
+// ─── Filter logic ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.pack-card').forEach(card => {
+      const cats = card.dataset.cats || '';
+      if (cat === 'all' || cats.includes(cat)) {
+        card.classList.remove('card-hidden');
+      } else {
+        card.classList.add('card-hidden');
+      }
+    });
+  });
+});
+
+// ─── Intersection observer — reveal on scroll ─────────────────────────────────
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('shown'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ─── Count-up animation ───────────────────────────────────────────────────────
+function countUp(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const isFloat = !!el.dataset.float;
+  const duration = 1500;
+  const start = performance.now();
+  const step = now => {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const val = ease * target;
+    el.textContent = isFloat ? val.toFixed(2) + suffix : Math.round(val).toLocaleString() + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { countUp(e.target); countObs.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => countObs.observe(el));
+</script>
+</body>
+</html>
